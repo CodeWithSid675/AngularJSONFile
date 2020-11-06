@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TaxmannAssignment"
+    }
+  },
+  "defaultProject": "TaxmannAssignment",
+  "cli": {
+    "analytics": "898c8855-5293-4165-af20-ceb2f564bf63"
+  }
 }
