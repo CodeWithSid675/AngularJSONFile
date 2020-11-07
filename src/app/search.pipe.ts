@@ -5,7 +5,7 @@ import { strict } from 'assert';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-  transform(value: any, q?: string,colName: string="title"): any {
+  transform(value: any, q?: string,colName?: string): any {
       if(!value) return null;
       if(!q) return value;
       q = q.toLowerCase();

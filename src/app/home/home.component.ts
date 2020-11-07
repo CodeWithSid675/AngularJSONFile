@@ -10,9 +10,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomeComponent implements OnInit {
   query: any;
   p: number = 1;
-  selected='title'
-  constructor(private service: AppService,private spinner: NgxSpinnerService) { }
+  selected = 'title';
   productData: any = [];
+  constructor(private service: AppService, private spinner: NgxSpinnerService) { }
+
   ngOnInit(): void {
     this.spinner.show();
     this.service.getproductData().subscribe(response => {
@@ -25,20 +26,24 @@ export class HomeComponent implements OnInit {
       console.log(this.productData);
     });
   }
+
+  // on input search changes
   onSearchChange(searchKey) {
     this.query = searchKey;
   }
+
+  // sorting function
   sortBy(field: string) {
     this.productData.sort((a: any, b: any) => {
-        if (Number(a[field]) < Number(b[field])) {
-            return 1;
-        } else if (Number(a[field]) > Number(b[field])) {
-            return -1;
-        } else {
-            return 0;
-        }
+      if (Number(a[field]) < Number(b[field])) {
+        return 1;
+      } else if (Number(a[field]) > Number(b[field])) {
+        return -1;
+      } else {
+        return 0;
+      }
     });
     this.productData = this.productData;
-}
+  }
 
 }
