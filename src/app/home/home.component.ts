@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app-service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,20 @@ import { AppService } from '../app-service';
 export class HomeComponent implements OnInit {
   query: any;
   p: number = 1;
-  constructor(private service: AppService) { }
+  selected='title'
+  constructor(private service: AppService,private spinner: NgxSpinnerService) { }
   productData: any = [];
   ngOnInit(): void {
+    this.spinner.show();
     this.service.getproductData().subscribe(response => {
       let data = response['products'];
       for (let item in data) {
         this.productData.push(data[item])
       }
       this.sortBy('popularity');
+      this.spinner.hide();
       console.log(this.productData);
-    })
+    });
   }
   onSearchChange(searchKey) {
     this.query = searchKey;

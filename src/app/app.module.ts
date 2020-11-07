@@ -9,6 +9,8 @@ import { AppService } from './app-service';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from './search.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
